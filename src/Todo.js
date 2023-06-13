@@ -19,7 +19,7 @@ function reducer(todos, action) {
         return todo;
       });
     case ACTIONS.DELETE_TODO:
-      return todos.filter(todo => todo.id !== action.payload.id)
+      return todos.filter((todo) => todo.id !== action.payload.id);
     default:
       return todos;
   }
@@ -33,16 +33,15 @@ const Todo = () => {
   const [name, setName] = useState("");
 
   function handleSubmit(e) {
-    e.preventDefault(); //prevents page from refreshing
+    e.preventDefault();
     dispatch({ type: ACTIONS.ADD_TODO, payload: { name: name } });
-    //payload generally contains the variables or the values that we need to perform that action
     setName("");
   }
 
   console.log(todos);
   return (
     <>
-    <h1>todo app</h1>
+      <h1>todo app</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
